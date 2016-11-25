@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     borderWidth: 1,
     borderColor: '#EEE',
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   }
 })
 
