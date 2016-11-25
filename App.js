@@ -2,18 +2,30 @@ import Exponent from 'exponent'
 import React, { Component } from 'react'
 import {
   ActivityIndicator,
-  Dimensions,
   KeyboardAvoidingView,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from 'react-native'
 
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
+
 import MessageInput from './MessageInput'
 
+@graphql(gql`
+  query MessagesQuery {
+    viewer {
+      allMessages(last: 25) {
+        nodes {
+          text
+        }
+      }
+    }
+  }
+`)
 class App extends Component {
   render() {
     if (this.props.data.loading) {

@@ -11,9 +11,11 @@ import {
   TextInput,
   View,
 } from 'react-native'
+
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
-import { ApolloProvider, graphql } from 'react-apollo'
-import gql from 'graphql-tag'
+import { ApolloProvider } from 'react-apollo'
+
+import App from './App'
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
@@ -24,20 +26,11 @@ const client = new ApolloClient({
 class AppContainer extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up main.js to start working on your app!</Text>
-      </View>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
 
 Exponent.registerRootComponent(App)
