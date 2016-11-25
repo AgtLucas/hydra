@@ -1,10 +1,19 @@
-import Exponent from 'exponent';
-import React from 'react';
+import Exponent from 'exponent'
+import React from 'react'
 import {
+  ActivityIndicator,
+  Dimensions,
+  KeyboardAvoidingView,
+  ScrollView,
+  StatusBar,
   StyleSheet,
   Text,
+  TextInput,
   View,
-} from 'react-native';
+} from 'react-native'
+import ApolloClient, { createNetworkInterface } from 'apollo-client'
+import { ApolloProvider, graphql } from 'react-apollo'
+import gql from 'graphql-tag'
 
 class App extends React.Component {
   render() {
@@ -12,7 +21,7 @@ class App extends React.Component {
       <View style={styles.container}>
         <Text>Open up main.js to start working on your app!</Text>
       </View>
-    );
+    )
   }
 }
 
@@ -23,6 +32,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})
 
-Exponent.registerRootComponent(App);
+Exponent.registerRootComponent(App)
