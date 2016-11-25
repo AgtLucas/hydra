@@ -1,5 +1,5 @@
 import Exponent from 'exponent'
-import React from 'react'
+import React, { Component } from 'react'
 import {
   ActivityIndicator,
   Dimensions,
@@ -15,7 +15,13 @@ import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider, graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
-class App extends React.Component {
+const client = new ApolloClient({
+  networkInterface: createNetworkInterface({
+    uri: 'https://rare-molybdenum-506.myreindex.com/graphql'
+  })
+})
+
+class AppContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
