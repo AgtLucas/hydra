@@ -33,4 +33,4 @@ class AppContainer extends Component {
   }
 }
 
-Exponent.registerRootComponent(App)
+Exponent.registerRootComponent(AppContainer)
