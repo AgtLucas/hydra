@@ -1,16 +1,23 @@
 import React, { Component } from 'react'
 import {
-  ActivityIndicator,
   Dimensions,
   KeyboardAvoidingView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
-  Text,
   TextInput,
-  View,
 } from 'react-native'
 
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
+
+@graphql(gql`
+  mutation AddMessage($text: String!) {
+    createMessage(input: { text: $text }) {
+      changedMessage {
+        text
+      }
+    }
+  }
+`)
 class MessageInput extends Component {
   state = {
     text: ''
@@ -34,7 +41,21 @@ class MessageInput extends Component {
         placeholder='Leave a message'
         style={styles.messageInput}
         value={this.state.text}
-        returnKeyType='send'/>
+        returnKeyType='send'
+      />
     )
   }
 }
+
+const styles = StyleSheet.create({
+  messageInput: {
+    backgroundColor: '#FFF',
+    height: 50,
+    width: Dimensions.get('window').width,
+    borderWidth: 1,
+    borderColor: '#EEE',
+    paddingHorizontal: 10
+  }
+})
+
+export default MessageInput
