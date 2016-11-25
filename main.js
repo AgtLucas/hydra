@@ -1,17 +1,5 @@
 import Exponent from 'exponent'
 import React, { Component } from 'react'
-import {
-  ActivityIndicator,
-  Dimensions,
-  KeyboardAvoidingView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native'
-
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 
